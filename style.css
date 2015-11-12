@@ -66,11 +66,9 @@ Author URI: http://www.premiumdw.com/
 }
 
 
-/* ----- Main Elements ----- */
+/* ----- Elements ----- */
 
-html {
-	
-	}
+html { -webkit-text-size-adjust: none; }
 
 body {
 	font-family: 'OpenSansRegular', Arial, sans-serif;
@@ -89,6 +87,9 @@ a {
 	text-decoration: none;
 	}
 
+
+/* ----- Header ----- */
+
 #header {
 	padding: 10px;
 	}
@@ -104,9 +105,13 @@ a {
 		text-align: right;
 	}
 	
-	#social li {
+	#social ul li {
 		list-style-type: none;
 		display: inline-block;
+	}
+	
+	#social ul li a {
+		color: #e4ddd7;
 	}
 	
 	#logo {
@@ -114,7 +119,11 @@ a {
 		clear: both;
 	}
 	
+	
+/* ----- Navigation ----- */
+
 #navigation {
+	position: relative;
 	background-color: #3b97b7;
 	text-align: center;
 	}
@@ -137,10 +146,31 @@ a {
 		display: block;
 	}
 	
-	#navigation ul li a:hover {
+	#navigation ul li a:hover, #navigation ul li.current-page-item a {
 		color: #FFF;
 		background-color: #75c1d6;
 	}
+
+	
+	#search {
+		position: absolute; 
+		right: 10px;;
+		top: 15px;
+		height: 32px;
+		width: 150px;
+		border-radius: 16px;
+		border: 1px solid #FFF;
+		background-color:#3b97b7;
+		font-family: 'OpenSansLight', Arial, sans-serif;
+		color: #fff;
+		padding: 0 16px;
+		background-image:url(images/bg-search.png);
+		background-position: center right 4px;
+		background-repeat: no-repeat;
+	}
+	
+	
+/* ----- Content ----- */
 
 #content {
 	max-width: 680px;
@@ -219,6 +249,12 @@ a {
 			background-color: #f3f3ef;
 		}
 		
+		#content p.post-link a {
+			color: #40a4c6;
+			text-transform:uppercase;
+			
+		}
+		
 	#content ol, ul {
 		font-size: 1em;  /* 16px */
 		line-height: 150%; /* 24px */
@@ -236,6 +272,14 @@ a {
 		float: left;	
 		margin-right: 20px;
 		}
+		
+	#content article.post-excerpt img.attachment-thumbnail {
+		
+	}
+	
+	#content article.post-excerpt img.attachment-medium {
+		display: none;
+	}
 		
 	/* ----- Begin WordPress Core ----- */
 	
@@ -317,6 +361,8 @@ a {
 	/* ----- End WordPress Core ----- */
 		
 	
+/* ----- Footer ----- */
+
 #footer {
 	background-color: #c1bcb8;
 	padding: 20px 10px;
@@ -326,39 +372,94 @@ a {
 	#footer-logo {
 		float: left;
 		width: 20%;
-		border: 1px solid magenta;
 	}
 	
 	#footer-menu {
 		float: left;
-		width: 50%;
-		border: 1px solid magenta;
+		width: 60%;
 	}
 	
 	#footer-menu-items {
 		margin: 0 auto;
-		border: 1px solid yellow;
+		text-align:center;
 	}
 	
 	#footer-menu ul li {
+		font-family: 'OpenSansLight', Arial, sans-serif;
+		font-size: 0.8125em;
+		text-transform: uppercase;
 		list-style-type:none;
 		display: inline-block;
+	}
+	
+	#footer-menu ul li a {
+		color: #fff;
+		display: block;
+		padding: 0 10px;
 	}
 	
 	#footer-social {
 		float: right;
 		width: 20%;
-		border: 1px solid magenta;
+		text-align: right;
 	}
+	
+	#footer-social ul li {
+		list-style-type: none;
+		display: inline-block;	
+	}
+	 
+	#footer-social ul li a {
+		color: #FFF;
+	}
+
 	
 /* Tablet Screen Set to 700px or Below */
 @media screen and (max-width: 700px) {
 	
-#navigation-items {
-	width: auto;
-	overflow-x: scroll;
-	white-space: nowrap;
-}
+	#navigation-items {
+		width: auto;
+		overflow-x: scroll;
+		white-space: nowrap;
+	}
+	
+	#search {
+			position: relative; 
+			float: left;
+		}
+		
+	#footer-logo {
+		text-align: center;
+		float: none;
+		width: auto;
+		margin-bottom: 10px;
+	}
+	
+	#footer-menu {
+		text-align: center;
+		float: none;
+		width: auto;
+		margin-bottom: 10px;
+	}
+	
+	#footer-social {
+		float: none;
+		width: auto;
+		text-align: center;
+		margin-bottom: 10px;
+	}
 	
 	
 }
+
+/* Mobile Screen Set to 450px or Below */
+@media screen and (max-width: 450px) {
+
+#content article.post-excerpt img.attachment-thumbnail {
+		display: none;
+	}
+	
+	#content article.post-excerpt img.attachment-medium {
+		display: block;
+		margin-bottom: 10px;
+	}
